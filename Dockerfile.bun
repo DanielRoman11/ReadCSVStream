@@ -1,0 +1,14 @@
+# Use the official Bun image as a base.
+# The version number should be replaced with the latest available version that suits your project.
+# Check https://hub.docker.com/r/oven/bun/tags for all available versions.
+FROM oven/bun:1 AS base
+
+WORKDIR /app
+
+COPY . .
+
+RUN bun install
+
+EXPOSE 3000
+
+CMD ["bun", "run", "start:dev"]
